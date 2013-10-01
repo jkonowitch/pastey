@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.summary     = "Send files to PasteBin"
   s.description = "Send files to PasteBin"
   s.authors     = ["Jeffrey Konowitch"]
-  s.email       = 'jeff@ga.com'
+  s.email       = 'jeff@ga.co'
   s.files       = ["lib/pastey.rb"]
   s.homepage    =
     'https://github.com/jkonowitch/pastey'
