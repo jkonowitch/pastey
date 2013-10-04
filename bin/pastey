@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+unless ARGV.any?
+  puts "Please provide file path!"
+  Kernel.exit
+end
+
+require_relative '../lib/pastey'
+require 'pathname'
+
+API_KEY = ""
+
+pastebin = PasteBin.new(API_KEY)
+
+file_path = ARGV.first
+
+unless (file = Pathname.new(file_path)).absolute?
+  file = Pathname.new( File.expand_path(file, Dir.pwd) )
+end
+
+paste_url = pastebin.send(File.open(file).read, file.basename.to_s, file.extname)
+
+puts paste_url
