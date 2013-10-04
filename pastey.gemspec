@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'pastey'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2013-10-01'
   s.summary     = "Send files to PasteBin"
   s.description = "Send files to PasteBin"
