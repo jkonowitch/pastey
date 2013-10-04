@@ -11,6 +11,7 @@ path_to_config = File.expand_path("~/.pastey_config")
 
 unless File.exists?(path_to_config) && ( config = YAML.load(File.new(path_to_config)) ).has_key?("api_key")
   puts "Please place a .pastey_config file in your home directory with an API key."
+  Kernel.exit
 end
 
 require_relative '../lib/pastey'
