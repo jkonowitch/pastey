@@ -1,5 +1,4 @@
 #Pastey
--------
 
 Send files to PasteBin from the command line.
 
