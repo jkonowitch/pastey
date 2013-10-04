@@ -1,14 +1,22 @@
 #!/usr/bin/env ruby
 
+require 'yaml'
+
 unless ARGV.any?
   puts "Please provide file path!"
   Kernel.exit
 end
 
+path_to_config = File.expand_path("~/.pastey_config")
+
+unless File.exists?(path_to_config) && ( config = YAML.load(File.new(path_to_config)) ).has_key?("api_key")
+  puts "Please place a .pastey_config file in your home directory with an API key."
+end
+
 require_relative '../lib/pastey'
 require 'pathname'
 
-API_KEY = ""
+API_KEY = config["api_key"]
 
 pastebin = PasteBin.new(API_KEY)
 
