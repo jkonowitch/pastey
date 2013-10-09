@@ -12,8 +12,8 @@ $ ~ pastey ./test.txt
 
 ### API Keys
 
-Pastey will look for a file in your `home` directory called `.pastey_config`. This file should contain your PasteBin API Key in YAML format.
+Pastey will look for an api key in your shell environment using the variable PASTEBIN_KEY.
 
 ```
-api_key: A3409ASD3049KJKJ
+echo "export PASTEBIN_KEY='yourkey'" >> ~/.bash_profile
 ```
