@@ -7,17 +7,13 @@ unless ARGV.any?
   Kernel.exit
 end
 
-path_to_config = File.expand_path("~/.pastey_config")
-
-unless File.exists?(path_to_config) && ( config = YAML.load(File.new(path_to_config)) ).has_key?("api_key")
-  puts "Please place a .pastey_config file in your home directory with an API key."
+unless ( API_KEY = ENV["PASTEBIN_KEY"] )
+  puts "Please add your PasteBin API key to your ENV (export PASTEBIN_KEY='yourkey')."
   Kernel.exit
 end
 
 require_relative '../lib/pastey'
 require 'pathname'
-
-API_KEY = config["api_key"]
 
 pastebin = PasteBin.new(API_KEY)
 
