@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'yaml'
-
-unless ARGV.any?
+unless ( file_path = ARGV.first )
   puts "Please provide file path!"
   Kernel.exit
 end
@@ -16,8 +14,6 @@ require_relative '../lib/pastey'
 require 'pathname'
 
 pastebin = PasteBin.new(API_KEY)
-
-file_path = ARGV.first
 
 unless (file = Pathname.new(file_path)).absolute?
   file = Pathname.new( File.expand_path(file, Dir.pwd) )
